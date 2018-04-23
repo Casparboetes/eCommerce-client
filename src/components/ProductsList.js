@@ -15,7 +15,6 @@ class ProductList extends PureComponent {
     return (
       <div>
         <h1>All Products</h1>
-
         <table>
           <thead>
             <tr>
