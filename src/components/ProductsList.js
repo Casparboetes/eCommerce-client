@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
+import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 
-class ProductList extends PureComponent {
+class ProductsList extends PureComponent {
   static propTypes = {
     products: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -11,10 +12,13 @@ class ProductList extends PureComponent {
   }
 
   render() {
-    const { products } = this.props
+    const {products} = this.props
+    console.log('aaaaaaaa', products)
+
     return (
       <div>
-        <h1>All Products</h1>
+        <h1>All products</h1>
+
         <table>
           <thead>
             <tr>
@@ -24,17 +28,25 @@ class ProductList extends PureComponent {
             </tr>
           </thead>
           <tbody>
-            { products.map(product => (
-              <tr key={ product.id }>
-                <td>{ product.name }</td>
-                <td> &euro; { product.price}.00</td>
-              </tr>))
-            }
+            { products.map(product => (<tr key={product.id}>
+              <td>{product.id}</td>
+              <td>{product.name}</td>
+              <td>&euro; {product.price}.00</td>
+            </tr>)) }
           </tbody>
-        </table>
+				</table>
       </div>
     )
   }
 }
 
-export default ProductList
+const mapStateToProps = function (state) {
+  return {
+    products: state.products
+  }
+}
+
+// const mapStateToProps = ({ products }) => ({ products })
+
+
+export default connect(mapStateToProps)(ProductsList)
