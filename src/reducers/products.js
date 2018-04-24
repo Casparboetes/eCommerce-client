@@ -5,6 +5,11 @@ const products = [
     price: 1450
   },
   {
+    id: 2,
+    name: 'Fan',
+    price: 125
+  },
+  {
     id: 5,
     name: 'Heater',
     price: 550
