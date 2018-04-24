@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 
 class ProductDetails extends PureComponent {
   static propTypes = {
-    product: PropTypes.arrayOf(PropTypes.shape({
+    product: PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired,
       image: PropTypes.string.isRequired,
-    })).isRequired
+    }).isRequired
   }
 
   render() {
@@ -28,9 +28,9 @@ class ProductDetails extends PureComponent {
   }
 }
 
-const mapStateToProps = function (state) {
+const mapStateToProps = function (state, props) {
   return {
-    product: state.products.find(product => product.id === 7)
+    product: state.products.find(p => p.id === Number(props.match.params.id))
   }
 }
 
