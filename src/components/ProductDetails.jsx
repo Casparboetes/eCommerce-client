@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 class ProductDetails extends PureComponent {
@@ -27,4 +28,10 @@ class ProductDetails extends PureComponent {
   }
 }
 
-export default ProductDetails
+const mapStateToProps = function (state) {
+  return {
+    product: state.products.find(product => product.id === 7)
+  }
+}
+
+export default connect(mapStateToProps)(ProductDetails)
