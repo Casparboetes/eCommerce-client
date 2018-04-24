@@ -16,7 +16,7 @@ const products = [
   }
 ]
 
-export default function (state = [products], action) {
+export default function (state = products, action) {
   switch (action.type) {
 
     default:

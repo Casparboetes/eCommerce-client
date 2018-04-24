@@ -40,13 +40,13 @@ class ProductsList extends PureComponent {
   }
 }
 
-const mapStateToProps = function (state) {
-  return {
-    products: state.products
-  }
-}
+// const mapStateToProps = function (state) {
+//   return {
+//     products: state.Products
+//   }
+// }
 
-// const mapStateToProps = ({ products }) => ({ products })
+const mapStateToProps = ({ products }) => ({ products })
 
 
 export default connect(mapStateToProps)(ProductsList)
