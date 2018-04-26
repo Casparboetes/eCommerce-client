@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { fetchAllProducts } from '../actions/products.js'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -9,6 +10,10 @@ class ProductsList extends PureComponent {
       name: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired
     })).isRequired
+  }
+
+  componentWillMount() {
+    this.props.fetchAllProducts()
   }
 
   render() {
@@ -49,4 +54,4 @@ class ProductsList extends PureComponent {
 const mapStateToProps = ({ products }) => ({ products })
 
 
-export default connect(mapStateToProps)(ProductsList)
+export default connect(mapStateToProps, { fetchAllProducts })(ProductsList)
